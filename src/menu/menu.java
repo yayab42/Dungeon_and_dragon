@@ -18,35 +18,46 @@ public class menu {
         return randomNum;
     }
 
- /*   public int diceRoll(){
-        return randInt(1,6);
-    }*/
+    public static class PersonnageHorsPlateauException extends Exception {
+        public PersonnageHorsPlateauException(String e) {
+            super(e);
+        }
+    }
 
+    //Lancement du jeu
     public static void play(Character hero) {
         System.out.println(hero.getName());
         int[] board = new int[64];
         int playerCase = 1;
         while (playerCase < board.length) {
-            if (playerCase < board.length) {
-                System.out.println("Vous vous trouvez sur la case " + playerCase + "/64");
-            }
             System.out.println("Tapez !roll pour lancer le dé");
             Scanner rollDice = new Scanner(System.in);
             String roll = rollDice.nextLine();
+            int currentRoll;
             if (roll.equals("!roll")) {
-                int currentRoll = randInt(1,6);
-                playerCase = playerCase + currentRoll;
+                currentRoll = randInt(1, 6);
                 System.out.println("Vous avez fait " + currentRoll);
+                try {
+                    playerCase = playerCase + currentRoll;
+
+                    if (playerCase > board.length) {
+                        throw new PersonnageHorsPlateauException("erreur");
+                    }
+                }catch(PersonnageHorsPlateauException e){
+                    playerCase = board.length;
+                }
+                System.out.println("Vous vous trouvez sur la case " + playerCase + "/64");
             }
+
+
         }
         System.out.println("Partie terminée !");
         System.out.println("Voulez vous recommencer ? oui/non");
         Scanner retry = new Scanner(System.in);
         String playerRetry = retry.nextLine();
-        if (playerRetry.equals("oui")){
+        if (playerRetry.equals("oui")) {
             play(hero);
-        }
-        else if (playerRetry.equals("non")){
+        } else if (playerRetry.equals("non")) {
             System.out.println("@+ gros");
             System.exit(0);
         }
@@ -87,13 +98,13 @@ public class menu {
 
         //vérification des choix utilisateur
         if (userChoice.equals("Guerrier")) {
-            characters.Warrior hero = new Warrior(userName, 5, randInt(5, 10), "img"); //
+            Character hero = new Warrior(userName, 5, randInt(5, 10), "img"); //
             System.out.println("Vous avez choisi : " + userChoice);
             System.out.println("vos points de vies : " + hero.getHealth());
             System.out.println("Vos points de force : " + hero.getStrength());
             return hero;
         } else if (userChoice.equals("Mage")) {
-            characters.Magicien hero = new Magicien(userName, "img", randInt(3, 6), randInt(8, 15));
+            Character hero = new Magicien(userName, "img", randInt(3, 6), randInt(8, 15));
             System.out.println("Vous avez choisi : " + userChoice);
             System.out.println("vos points de vies : " + hero.getHealth());
             System.out.println("Vos points de force : " + hero.getStrength());
@@ -152,13 +163,6 @@ public class menu {
             ready(hero);
         }
     }
-
-    //Entrée du programme
-    public static void main(String[] args) {
-        start();
-
-    }
-
 
 }
 
