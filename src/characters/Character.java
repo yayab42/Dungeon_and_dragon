@@ -18,6 +18,7 @@ abstract class Character {
         this.health = health;
         this.strength = strength;
         this.image = image;
+
     }
     public int getHealth(){
         return health;
@@ -26,5 +27,12 @@ abstract class Character {
     public int getStrength(){
         return strength;
     }
+    public void setName(String name ) {
+        this.name = name;
 
+    }
+
+    public String getName(){
+        return name;
+    }
 }
