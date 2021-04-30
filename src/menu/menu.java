@@ -18,10 +18,39 @@ public class menu {
         return randomNum;
     }
 
-    public static void play(Character hero) {
+ /*   public int diceRoll(){
+        return randInt(1,6);
+    }*/
 
-        System.out.println("Ok on joue");
+    public static void play(Character hero) {
         System.out.println(hero.getName());
+        int[] board = new int[64];
+        int playerCase = 1;
+        while (playerCase < board.length) {
+            if (playerCase < board.length) {
+                System.out.println("Vous vous trouvez sur la case " + playerCase + "/64");
+            }
+            System.out.println("Tapez !roll pour lancer le dé");
+            Scanner rollDice = new Scanner(System.in);
+            String roll = rollDice.nextLine();
+            if (roll.equals("!roll")) {
+                int currentRoll = randInt(1,6);
+                playerCase = playerCase + currentRoll;
+                System.out.println("Vous avez fait " + currentRoll);
+            }
+        }
+        System.out.println("Partie terminée !");
+        System.out.println("Voulez vous recommencer ? oui/non");
+        Scanner retry = new Scanner(System.in);
+        String playerRetry = retry.nextLine();
+        if (playerRetry.equals("oui")){
+            play(hero);
+        }
+        else if (playerRetry.equals("non")){
+            System.out.println("@+ gros");
+            System.exit(0);
+        }
+
     }
 
     public static void modify(Character hero) {
