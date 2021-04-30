@@ -1,6 +1,6 @@
 package characters;
 
-abstract class Character {
+public abstract class Character {
     String name;
     int health;
     int strength;
@@ -21,10 +21,11 @@ abstract class Character {
 
     }
     public int getHealth(){
+
         return health;
     }
-
     public int getStrength(){
+
         return strength;
     }
     public void setName(String name ) {
@@ -33,6 +34,7 @@ abstract class Character {
     }
 
     public String getName(){
+
         return name;
     }
 }
