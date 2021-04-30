@@ -1,8 +1,9 @@
 package app;
-import menu.menu;
+import menu.Menu;
 public class App {
     //Entrée du programme
     public static void main(String[] args) {
+        Menu menu = new Menu();
         menu.start();
     }
 }

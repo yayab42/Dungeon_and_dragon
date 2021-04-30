@@ -4,28 +4,17 @@ import characters.Character;
 import characters.Magicien;
 import characters.Warrior;
 
-import java.util.Random;
 import java.util.Scanner;
 
+import exceptions.PersonnageHorsPlateauException;
+import utils.Utils;
 
 //Menu
-public class menu {
+public class Menu {
 
-    //définition d'une fonction random pour points de vie
-    public static int randInt(int min, int max) {
-        Random rand = new Random();
-        int randomNum = rand.nextInt((max - min) + 1) + min;
-        return randomNum;
-    }
-
-    public static class PersonnageHorsPlateauException extends Exception {
-        public PersonnageHorsPlateauException(String e) {
-            super(e);
-        }
-    }
 
     //Lancement du jeu
-    public static void play(Character hero) {
+    public void play(Character hero) {
         System.out.println(hero.getName());
         int[] board = new int[64];
         int playerCase = 1;
@@ -35,7 +24,7 @@ public class menu {
             String roll = rollDice.nextLine();
             int currentRoll;
             if (roll.equals("!roll")) {
-                currentRoll = randInt(1, 6);
+                currentRoll = Utils.randInt(1, 6);
                 System.out.println("Vous avez fait " + currentRoll);
                 try {
                     playerCase = playerCase + currentRoll;
@@ -43,7 +32,7 @@ public class menu {
                     if (playerCase > board.length) {
                         throw new PersonnageHorsPlateauException("erreur");
                     }
-                }catch(PersonnageHorsPlateauException e){
+                } catch (PersonnageHorsPlateauException e) {
                     playerCase = board.length;
                 }
                 System.out.println("Vous vous trouvez sur la case " + playerCase + "/64");
@@ -64,7 +53,7 @@ public class menu {
 
     }
 
-    public static void modify(Character hero) {
+    public void modify(Character hero) {
         System.out.println("Il est encore temps de modifier ton nom : veux tu le modifier ? oui/non");
         Scanner modify = new Scanner(System.in);
         String nameModify = modify.nextLine();
@@ -84,7 +73,7 @@ public class menu {
 
     }
 
-    public static Character init() {
+    public Character init() {
         //selection du nom
         System.out.println("Entrez votre Nom");
         Scanner sc = new Scanner(System.in);
@@ -98,13 +87,13 @@ public class menu {
 
         //vérification des choix utilisateur
         if (userChoice.equals("Guerrier")) {
-            Character hero = new Warrior(userName, 5, randInt(5, 10), "img"); //
+            Character hero = new Warrior(userName, 5, Utils.randInt(5, 10), "img"); //
             System.out.println("Vous avez choisi : " + userChoice);
             System.out.println("vos points de vies : " + hero.getHealth());
             System.out.println("Vos points de force : " + hero.getStrength());
             return hero;
         } else if (userChoice.equals("Mage")) {
-            Character hero = new Magicien(userName, "img", randInt(3, 6), randInt(8, 15));
+            Character hero = new Magicien(userName, "img", Utils.randInt(3, 6), Utils.randInt(8, 15));
             System.out.println("Vous avez choisi : " + userChoice);
             System.out.println("vos points de vies : " + hero.getHealth());
             System.out.println("Vos points de force : " + hero.getStrength());
@@ -126,7 +115,7 @@ public class menu {
     }
 
     //On propose de lancer le jeu
-    public static void start() {
+    public void start() {
         System.out.println("Tapez 'start' pour jouer ou 'exit' pour quitter");
         Scanner start = new Scanner(System.in);
         String gameStart = start.nextLine();
@@ -142,7 +131,7 @@ public class menu {
     }
 
     //On vérifie si le joueur est prêt
-    public static void ready(Character hero) {
+    public void ready(Character hero) {
         System.out.println("la partie va commencer êtes vous prêt ? oui/non");
         Scanner ready = new Scanner(System.in);
         String playerReady = ready.nextLine();
