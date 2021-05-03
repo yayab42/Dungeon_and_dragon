@@ -1,5 +1,7 @@
 package characters;
 
+import characters.abilities.Spell;
+
 //Casters
 public class Magicien extends Character {
 

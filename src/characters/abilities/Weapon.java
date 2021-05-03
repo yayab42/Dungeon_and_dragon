@@ -1,4 +1,4 @@
-package characters;
+package characters.abilities;
 
 public class Weapon {
     private String name;

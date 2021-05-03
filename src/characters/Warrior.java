@@ -1,5 +1,7 @@
 package characters;
 
+import characters.abilities.Weapon;
+
 //Warriors
 public class Warrior extends Character {
 

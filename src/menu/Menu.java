@@ -12,6 +12,11 @@ import utils.Utils;
 //Menu
 public class Menu {
 
+    private Scanner scanner;
+
+    public Menu(){
+        this.scanner = new Scanner(System.in);
+    }
 
     //Lancement du jeu
     public void play(Character hero) {
@@ -20,8 +25,8 @@ public class Menu {
         int playerCase = 1;
         while (playerCase < board.length) {
             System.out.println("Tapez !roll pour lancer le dé");
-            Scanner rollDice = new Scanner(System.in);
-            String roll = rollDice.nextLine();
+            //Scanner rollDice = new Scanner(System.in);
+            String roll = this.scanner.nextLine();
             int currentRoll;
             if (roll.equals("!roll")) {
                 currentRoll = Utils.randInt(1, 6);
@@ -42,8 +47,8 @@ public class Menu {
         }
         System.out.println("Partie terminée !");
         System.out.println("Voulez vous recommencer ? oui/non");
-        Scanner retry = new Scanner(System.in);
-        String playerRetry = retry.nextLine();
+        //Scanner retry = new Scanner(System.in);
+        String playerRetry = this.scanner.nextLine();
         if (playerRetry.equals("oui")) {
             play(hero);
         } else if (playerRetry.equals("non")) {
@@ -51,17 +56,19 @@ public class Menu {
             System.exit(0);
         }
 
+
     }
+
 
     public void modify(Character hero) {
         System.out.println("Il est encore temps de modifier ton nom : veux tu le modifier ? oui/non");
-        Scanner modify = new Scanner(System.in);
-        String nameModify = modify.nextLine();
+        //Scanner modify = new Scanner(System.in);
+        String nameModify = this.scanner.nextLine();
         if (nameModify.equals("oui")) {
             //setter
 
-            Scanner nameMod = new Scanner(System.in);
-            String mod = nameMod.nextLine();
+            //Scanner nameMod = new Scanner(System.in);
+            String mod = this.scanner.nextLine();
             hero.setName(mod);
         }
         if (nameModify.equals("non")) {
@@ -76,14 +83,14 @@ public class Menu {
     public Character init() {
         //selection du nom
         System.out.println("Entrez votre Nom");
-        Scanner sc = new Scanner(System.in);
-        String userName = sc.nextLine();
+        //Scanner sc = new Scanner(System.in);
+        String userName = this.scanner.nextLine();
         System.out.println("Vous avez saisi : " + userName);
 
         //selection de la classe
         System.out.println("Selectionnez votre classe : Guerrier ou Mage");
-        Scanner userChar = new Scanner(System.in);
-        String userChoice = userChar.nextLine();
+        //Scanner userChar = new Scanner(System.in);
+        String userChoice = this.scanner.nextLine();
 
         //vérification des choix utilisateur
         if (userChoice.equals("Guerrier")) {
@@ -117,8 +124,8 @@ public class Menu {
     //On propose de lancer le jeu
     public void start() {
         System.out.println("Tapez 'start' pour jouer ou 'exit' pour quitter");
-        Scanner start = new Scanner(System.in);
-        String gameStart = start.nextLine();
+        //Scanner start = new Scanner(System.in);
+        String gameStart = this.scanner.nextLine();
         if (gameStart.equals("start")) {
             Character hero = init();
             ready(hero);
@@ -133,15 +140,15 @@ public class Menu {
     //On vérifie si le joueur est prêt
     public void ready(Character hero) {
         System.out.println("la partie va commencer êtes vous prêt ? oui/non");
-        Scanner ready = new Scanner(System.in);
-        String playerReady = ready.nextLine();
+        //Scanner ready = new Scanner(System.in);
+        String playerReady = this.scanner.nextLine();
         if (playerReady.equals("oui")) {
             modify(hero);
 
         } else if (playerReady.equals("non")) {
             System.out.println("Êtes vous sûr ? oui/non");
-            Scanner sure = new Scanner(System.in);
-            String playerSure = sure.nextLine();
+           // Scanner sure = new Scanner(System.in);
+            String playerSure = this.scanner.nextLine();
             if (playerSure.equals("oui")) {
                 java.lang.System.exit(0);
             } else {
