@@ -5,6 +5,8 @@ import characters.Character;
 import characters.Magicien;
 import characters.Warrior;
 import cases.Board;
+import java.util.Collections;
+import java.util.Random;
 import java.util.Scanner;
 
 import exceptions.PersonnageHorsPlateauException;
@@ -25,13 +27,14 @@ public class Menu {
         //int[] board = new int[64];
         int playerCase = 1;
         Board board = new Board();
-        while (playerCase < board.getLength()) {
+        Collections.shuffle(board.getList(), new Random());
+        while (playerCase < board.getLength() && hero.getHealth()>0) {
             System.out.println("Tapez !roll pour lancer le dé");
             //Scanner rollDice = new Scanner(System.in);
             String roll = this.scanner.nextLine();
             int currentRoll;
             if (roll.equals("!roll")) {
-                currentRoll = 1 ;//Utils.randInt(1, 6);
+                currentRoll = Utils.randInt(1, 6);
                 System.out.println("Vous avez fait " + currentRoll);
                 try {
                     playerCase = playerCase + currentRoll;

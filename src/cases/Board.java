@@ -25,8 +25,53 @@ public class Board {
         liste.add(new EmptyCase());
         liste.add(new EmptyCase());
         liste.add(new PotionCase(grandePotion));
+        liste.add(new PotionCase(grandePotion));
+        liste.add(new PotionCase(potion));
+        liste.add(new PotionCase(potion));
+        liste.add(new PotionCase(potion));
+        liste.add(new PotionCase(potion));
+        liste.add(new PotionCase(potion));
+        liste.add(new PotionCase(potion));
         liste.add(new EnemyCase(Dragon));
+        liste.add(new EnemyCase(Dragon));
+        liste.add(new EnemyCase(Dragon));
+        liste.add(new EnemyCase(Dragon));
+        liste.add(new EnemyCase(gobelin));
+        liste.add(new EnemyCase(gobelin));
+        liste.add(new EnemyCase(gobelin));
+        liste.add(new EnemyCase(gobelin));
+        liste.add(new EnemyCase(gobelin));
+        liste.add(new EnemyCase(gobelin));
+        liste.add(new EnemyCase(gobelin));
+        liste.add(new EnemyCase(gobelin));
+        liste.add(new EnemyCase(gobelin));
+        liste.add(new EnemyCase(gobelin));
+        liste.add(new EnemyCase(Sorcier));
+        liste.add(new EnemyCase(Sorcier));
+        liste.add(new EnemyCase(Sorcier));
+        liste.add(new EnemyCase(Sorcier));
+        liste.add(new EnemyCase(Sorcier));
+        liste.add(new EnemyCase(Sorcier));
+        liste.add(new EnemyCase(Sorcier));
+        liste.add(new EnemyCase(Sorcier));
+        liste.add(new EnemyCase(Sorcier));
+        liste.add(new EnemyCase(Sorcier));
         liste.add(new WeaponCase(sword));
+        liste.add(new WeaponCase(sword));
+        liste.add(new WeaponCase(sword));
+        liste.add(new WeaponCase(sword));
+        liste.add(new WeaponCase(mace));
+        liste.add(new WeaponCase(mace));
+        liste.add(new WeaponCase(mace));
+        liste.add(new WeaponCase(mace));
+        liste.add(new WeaponCase(mace));
+        liste.add(new SpellCase(Eclair));
+        liste.add(new SpellCase(Eclair));
+        liste.add(new SpellCase(Eclair));
+        liste.add(new SpellCase(Eclair));
+        liste.add(new SpellCase(Eclair));
+        liste.add(new SpellCase(BouleDeFeu));
+        liste.add(new SpellCase(BouleDeFeu));
     }
 
     public Case getCase(int playerCase){
@@ -35,4 +80,5 @@ public class Board {
     public int getLength(){
         return liste.size();
     }
+    public List getList(){return liste;}
 }
