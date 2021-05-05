@@ -1,9 +1,10 @@
 package menu;
 
+import cases.Case;
 import characters.Character;
 import characters.Magicien;
 import characters.Warrior;
-
+import cases.Board;
 import java.util.Scanner;
 
 import exceptions.PersonnageHorsPlateauException;
@@ -21,26 +22,29 @@ public class Menu {
     //Lancement du jeu
     public void play(Character hero) {
         System.out.println(hero.getName());
-        int[] board = new int[64];
+        //int[] board = new int[64];
         int playerCase = 1;
-        while (playerCase < board.length) {
+        Board board = new Board();
+        while (playerCase < board.getLength()) {
             System.out.println("Tapez !roll pour lancer le dé");
             //Scanner rollDice = new Scanner(System.in);
             String roll = this.scanner.nextLine();
             int currentRoll;
             if (roll.equals("!roll")) {
-                currentRoll = Utils.randInt(1, 6);
+                currentRoll = 1 ;//Utils.randInt(1, 6);
                 System.out.println("Vous avez fait " + currentRoll);
                 try {
                     playerCase = playerCase + currentRoll;
 
-                    if (playerCase > board.length) {
+                    if (playerCase > board.getLength()) {
                         throw new PersonnageHorsPlateauException("erreur");
                     }
                 } catch (PersonnageHorsPlateauException e) {
-                    playerCase = board.length;
+                    playerCase = board.getLength();
                 }
                 System.out.println("Vous vous trouvez sur la case " + playerCase + "/64");
+                Case currentCase = board.getCase(playerCase);
+                currentCase.deploy(hero);
             }
 
 

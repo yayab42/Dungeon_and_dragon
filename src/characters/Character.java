@@ -28,9 +28,15 @@ public abstract class Character {
 
         return strength;
     }
+
+    public void setStrength(int strength){this.strength = strength;}
     public void setName(String name ) {
         this.name = name;
 
+    }
+
+    public void setHealth(int hp){
+        this.health = hp;
     }
 
     public String getName(){

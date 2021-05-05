@@ -5,11 +5,7 @@ import characters.abilities.Potion;
 public class Grande_potion extends Potion {
 
     public Grande_potion(){
-        super();
-    }
-    public Grande_potion(int hp, String name){
-        this.hp = 5;
-        this.name = "Grande potion de vie";
+        super(5, "Grande Potion de Vie");
     }
     public int getHp(){
         return hp;

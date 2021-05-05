@@ -5,22 +5,24 @@ import characters.abilities.Weapon;
 //Warriors
 public class Warrior extends Character {
 
-    private Weapon weapon = new Weapon();
-    public Warrior() {
+    private Weapon weapon;
+    public Warrior(Weapon weapon) {
 
         super();
-        this.weapon = new Weapon();
+        this.weapon = weapon;
     }
 
-    public Warrior(String name) {
+    public Warrior(String name, Weapon weapon) {
 
         super(name);
-        this.weapon = new Weapon();
+        this.weapon = weapon;
     }
-
     public Warrior(String warriorName, int warriorHealth, int warriorStrength, String warriorImg) {
         super(warriorName, warriorHealth, warriorStrength, warriorImg);
-        this.weapon = new Weapon();
+    }
+    public Warrior(String warriorName, int warriorHealth, int warriorStrength, String warriorImg, Weapon weapon) {
+        super(warriorName, warriorHealth, warriorStrength, warriorImg);
+        this.weapon =weapon;
     }
     public void setName(String name ) {
         this.name = name;
@@ -31,7 +33,9 @@ public class Warrior extends Character {
         return name;
     }
 
-
+    public int setWeapon(){
+        return weapon.getWeaponLevel();
+    }
 }
 
 

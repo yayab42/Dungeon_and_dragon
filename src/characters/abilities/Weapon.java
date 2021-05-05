@@ -1,6 +1,6 @@
 package characters.abilities;
 
-public class Weapon {
+public abstract class Weapon {
     private String name;
     private int level;
 
