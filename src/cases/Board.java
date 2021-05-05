@@ -24,6 +24,20 @@ public class Board {
     public Board(){
         liste.add(new EmptyCase());
         liste.add(new EmptyCase());
+        liste.add(new EmptyCase());
+        liste.add(new EmptyCase());
+        liste.add(new EmptyCase());
+        liste.add(new EmptyCase());
+        liste.add(new EmptyCase());
+        liste.add(new EmptyCase());
+        liste.add(new EmptyCase());
+        liste.add(new EmptyCase());
+        liste.add(new EmptyCase());
+        liste.add(new EmptyCase());
+        liste.add(new EmptyCase());
+        liste.add(new EmptyCase());
+        liste.add(new EmptyCase());
+        liste.add(new EmptyCase());
         liste.add(new PotionCase(grandePotion));
         liste.add(new PotionCase(grandePotion));
         liste.add(new PotionCase(potion));
@@ -80,5 +94,6 @@ public class Board {
     public int getLength(){
         return liste.size();
     }
+
     public List getList(){return liste;}
 }

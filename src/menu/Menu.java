@@ -1,6 +1,7 @@
 package menu;
 
 import cases.Case;
+import cases.PlayerCase;
 import characters.Character;
 import characters.Magicien;
 import characters.Warrior;
@@ -25,10 +26,11 @@ public class Menu {
     public void play(Character hero) {
         System.out.println(hero.getName());
         //int[] board = new int[64];
-        int playerCase = 1;
+        PlayerCase playerCase = new PlayerCase(0);
+        //int playerCase = 1;
         Board board = new Board();
         Collections.shuffle(board.getList(), new Random());
-        while (playerCase < board.getLength() && hero.getHealth()>0) {
+        while (playerCase.getCase() < board.getLength() && hero.getHealth()>0) {
             System.out.println("Tapez !roll pour lancer le dé");
             //Scanner rollDice = new Scanner(System.in);
             String roll = this.scanner.nextLine();
@@ -37,16 +39,17 @@ public class Menu {
                 currentRoll = Utils.randInt(1, 6);
                 System.out.println("Vous avez fait " + currentRoll);
                 try {
-                    playerCase = playerCase + currentRoll;
+                    playerCase.setCase(playerCase.getCase() + currentRoll);
 
-                    if (playerCase > board.getLength()) {
+                    if (playerCase.getCase() > board.getLength()) {
                         throw new PersonnageHorsPlateauException("erreur");
                     }
                 } catch (PersonnageHorsPlateauException e) {
-                    playerCase = board.getLength();
+                    playerCase.setCase(board.getLength());
+
                 }
-                System.out.println("Vous vous trouvez sur la case " + playerCase + "/64");
-                Case currentCase = board.getCase(playerCase);
+                System.out.println("Vous vous trouvez sur la case " + playerCase.getCase() + "/64");
+                Case currentCase = board.getCase(playerCase.getCase());
                 currentCase.deploy(hero);
             }
 

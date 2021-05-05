@@ -37,4 +37,8 @@ public abstract class Enemy {
 
         return name;
     }
+
+    public void setHealth(int health){
+        this.health = health;
+    }
 }
