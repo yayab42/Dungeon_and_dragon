@@ -5,7 +5,7 @@ import characters.Warrior;
 import characters.abilities.Weapon;
 
 public class WeaponCase extends Case {
-    Weapon weapon;
+    private Weapon weapon;
 
     @Override
     public void deploy(Character hero) {

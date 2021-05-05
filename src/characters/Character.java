@@ -6,14 +6,19 @@ public abstract class Character {
     int strength;
     String image;
 
+
+    private int playerCase;
+
     public Character() {
     }
 
     public Character(String name) {
         this.name = name;
+        this.playerCase = 1;
     }
 
     public Character(String name, int health, int strength, String image) {
+        this.playerCase = 1;
         this.name = name;
         this.health = health;
         this.strength = strength;
@@ -42,5 +47,13 @@ public abstract class Character {
     public String getName(){
 
         return name;
+    }
+
+    public int getPlayerCase() {
+        return playerCase;
+    }
+
+    public void setPlayerCase(int playerCase) {
+        this.playerCase = playerCase;
     }
 }

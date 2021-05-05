@@ -2,10 +2,7 @@ package cases;
 
 import characters.Character;
 import characters.Magicien;
-import characters.Warrior;
 import characters.abilities.Spell;
-import characters.abilities.Weapon;
-
 public class SpellCase extends Case{
     Spell spell;
 

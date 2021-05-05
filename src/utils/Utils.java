@@ -8,4 +8,5 @@ public final class Utils {
         Random rand = new Random();
         return rand.nextInt((max - min) + 1) + min;
     }
+
 }

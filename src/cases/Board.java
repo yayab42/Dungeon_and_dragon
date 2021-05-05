@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Board {
-    List<Case> liste = new ArrayList();
+    ArrayList<Case> liste = new ArrayList<Case>();
     Enemy Dragon = new Dragon();
     Enemy gobelin = new Gobelin();
     Enemy Sorcier = new Sorcier();
@@ -89,11 +89,11 @@ public class Board {
     }
 
     public Case getCase(int playerCase){
-        return liste.get(playerCase);
+        return liste.get(playerCase-1);
     }
     public int getLength(){
         return liste.size();
     }
 
-    public List getList(){return liste;}
+    public ArrayList<Case> getList(){return liste;}
 }

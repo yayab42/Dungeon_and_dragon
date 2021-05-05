@@ -1,7 +1,6 @@
 package menu;
 
 import cases.Case;
-import cases.PlayerCase;
 import characters.Character;
 import characters.Magicien;
 import characters.Warrior;
@@ -25,12 +24,9 @@ public class Menu {
     //Lancement du jeu
     public void play(Character hero) {
         System.out.println(hero.getName());
-        //int[] board = new int[64];
-        PlayerCase playerCase = new PlayerCase(0);
-        //int playerCase = 1;
         Board board = new Board();
         Collections.shuffle(board.getList(), new Random());
-        while (playerCase.getCase() < board.getLength() && hero.getHealth()>0) {
+        while (hero.getPlayerCase() < board.getLength() && hero.getHealth()>0) {
             System.out.println("Tapez !roll pour lancer le dé");
             //Scanner rollDice = new Scanner(System.in);
             String roll = this.scanner.nextLine();
@@ -39,17 +35,17 @@ public class Menu {
                 currentRoll = Utils.randInt(1, 6);
                 System.out.println("Vous avez fait " + currentRoll);
                 try {
-                    playerCase.setCase(playerCase.getCase() + currentRoll);
+                    hero.setPlayerCase(hero.getPlayerCase() + currentRoll);
 
-                    if (playerCase.getCase() > board.getLength()) {
+                    if (hero.getPlayerCase() > board.getLength()) {
                         throw new PersonnageHorsPlateauException("erreur");
                     }
                 } catch (PersonnageHorsPlateauException e) {
-                    playerCase.setCase(board.getLength());
+                    hero.setPlayerCase(board.getLength());
 
                 }
-                System.out.println("Vous vous trouvez sur la case " + playerCase.getCase() + "/64");
-                Case currentCase = board.getCase(playerCase.getCase());
+                System.out.println("Vous vous trouvez sur la case " + hero.getPlayerCase() + "/64");
+                Case currentCase = board.getCase(hero.getPlayerCase());
                 currentCase.deploy(hero);
             }
 
@@ -60,6 +56,7 @@ public class Menu {
         //Scanner retry = new Scanner(System.in);
         String playerRetry = this.scanner.nextLine();
         if (playerRetry.equals("oui")) {
+            hero.setPlayerCase(1);
             play(hero);
         } else if (playerRetry.equals("non")) {
             System.out.println("@+ gros");
