@@ -1,10 +1,10 @@
 package enemies;
 
 public abstract class Enemy {
-    String name;
-    int health;
-    int strength;
-    String image;
+    private String name;
+    private int health;
+    private int strength;
+    private String image;
 
     public Enemy() {
     }

@@ -1,8 +1,8 @@
 package characters.abilities;
 
 public abstract class Potion {
-    int hp;
-    String name;
+    private int hp;
+    private String name;
 
 
     public Potion(){
