@@ -92,6 +92,7 @@ public class Board {
         return liste.get(playerCase-1);
     }
     public int getLength(){
+
         return liste.size();
     }
 
