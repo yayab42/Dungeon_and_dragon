@@ -56,12 +56,14 @@ public class Menu {
         try {
             Class<?> currentHero = Class.forName("characters." + userChoice);
             Character hero = (Character) currentHero.newInstance();
+            hero.setName(userName);
             /*Class<?> c =hero.getClass().getSuperclass();
             Field nameField = c.getDeclaredField("name");
             nameField.setAccessible(true);
             nameField.set(String.class, userName);
             nameField.setAccessible(false);*/
             System.out.println("Vous avez choisi : " + userChoice);
+            System.out.println("Votre nom : " + hero.getName());
             System.out.println("vos points de vies : " + hero.getHealth());
             System.out.println("Vos points de force : " + hero.getStrength());
             return hero;
