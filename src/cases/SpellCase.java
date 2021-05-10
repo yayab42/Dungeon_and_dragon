@@ -4,7 +4,7 @@ import characters.Character;
 import characters.Magicien;
 import characters.abilities.Spell;
 public class SpellCase extends Case{
-    Spell spell;
+    private Spell spell;
 
     @Override
     public void deploy(Character hero) {

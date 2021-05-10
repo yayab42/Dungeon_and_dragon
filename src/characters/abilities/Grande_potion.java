@@ -1,7 +1,5 @@
 package characters.abilities;
 
-import characters.abilities.Potion;
-
 public class Grande_potion extends Potion {
 
     public Grande_potion(){

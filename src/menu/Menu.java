@@ -1,16 +1,11 @@
 package menu;
 import game.Game;
-import cases.Case;
 import characters.Character;
 import characters.Magicien;
 import characters.Warrior;
-import cases.Board;
-import java.util.Collections;
-import java.util.Random;
-import java.util.Scanner;
 
-import exceptions.PersonnageHorsPlateauException;
-import utils.Utils;
+import java.lang.reflect.Field;
+import java.util.Scanner;
 
 //Menu
 public class Menu {
@@ -37,8 +32,8 @@ public class Menu {
         }
         if (nameModify.equals("non")) {
             System.out.println("C'est parti !");
-            Game game = new Game();
-            game.play(hero);
+            Game game = new Game(hero);
+            game.play();
         } else {
             modify(hero);
         }
@@ -53,36 +48,51 @@ public class Menu {
         System.out.println("Vous avez saisi : " + userName);
 
         //selection de la classe
-        System.out.println("Selectionnez votre classe : Guerrier ou Mage");
+        System.out.println("Selectionnez votre classe : Warrior ou Magicien");
         //Scanner userChar = new Scanner(System.in);
         String userChoice = this.scanner.nextLine();
 
         //vérification des choix utilisateur
-        if (userChoice.equals("Guerrier")) {
-            Character hero = new Warrior(userName, 5, Utils.randInt(5, 10), "img"); //
+        try {
+            Class<?> currentHero = Class.forName("characters." + userChoice);
+            Character hero = (Character) currentHero.newInstance();
+            /*Class<?> c =hero.getClass().getSuperclass();
+            Field nameField = c.getDeclaredField("name");
+            nameField.setAccessible(true);
+            nameField.set(String.class, userName);
+            nameField.setAccessible(false);*/
+            System.out.println("Vous avez choisi : " + userChoice);
+            System.out.println("vos points de vies : " + hero.getHealth());
+            System.out.println("Vos points de force : " + hero.getStrength());
+            return hero;
+        } catch( Exception e ) {
+            System.out.println("Cette classe n'existe pas !");
+            //Quitte le programme si rien n'est fait
+                init();
+
+        }
+
+        /*if (userChoice.equals("Guerrier")) {
+            Character hero = new Warrior(userName); //
             System.out.println("Vous avez choisi : " + userChoice);
             System.out.println("vos points de vies : " + hero.getHealth());
             System.out.println("Vos points de force : " + hero.getStrength());
             return hero;
         } else if (userChoice.equals("Mage")) {
-            Character hero = new Magicien(userName, "img", Utils.randInt(3, 6), Utils.randInt(8, 15));
+            Character hero = new Magicien(userName);
             System.out.println("Vous avez choisi : " + userChoice);
             System.out.println("vos points de vies : " + hero.getHealth());
             System.out.println("Vos points de force : " + hero.getStrength());
             return hero;
+        }*/
 
-        }
 
         //quitte le programme si choix = exit
-        else if (userChoice.equals("exit")) {
+        if (userChoice.equals("exit")) {
             java.lang.System.exit(0);
         }
 
-        //Quitte le programme si rien n'est fait
-        else {
-            System.out.println("Erreur, veuillez reessayer");
-            init();
-        }
+
         return null;
     }
 

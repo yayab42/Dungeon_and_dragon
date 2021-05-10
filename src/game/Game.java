@@ -1,5 +1,4 @@
 package game;
-import menu.Menu;
 import cases.Board;
 import cases.Case;
 import characters.Character;
@@ -12,14 +11,32 @@ import java.util.Scanner;
 
 public class Game {
     private Scanner scanner;
-
+    private Board board;
+    private Character hero;
+    private int playerCase;
     public Game(){
-        this.scanner = new Scanner(System.in);
+
+       this.scanner = new Scanner(System.in);
     }
     //Lancement du jeu
-    public void play(Character hero) {
+
+
+    public Game(Character hero){
+        this();
+        this.hero = hero;
+        this.board = new Board();
+        this.playerCase = 1;
+    }
+
+    public Game(Board board, Character hero, int playerCase){
+        this();
+        this.board = board;
+        this.hero = hero;
+        this.playerCase = playerCase;
+    }
+    public void play() {
+
         System.out.println(hero.getName());
-        Board board = new Board();
         Collections.shuffle(board.getList(), new Random());
         while (hero.getPlayerCase() < board.getLength() && hero.getHealth()>0) {
             System.out.println("Tapez !roll pour lancer le dé");
@@ -52,7 +69,7 @@ public class Game {
         String playerRetry = this.scanner.nextLine();
         if (playerRetry.equals("oui")) {
             hero.setPlayerCase(1);
-            play(hero);
+            play();
         } else if (playerRetry.equals("non")) {
             System.out.println("@+ gros");
             System.exit(0);
@@ -61,4 +78,27 @@ public class Game {
 
     }
 
+    public Board getBoard() {
+        return board;
+    }
+
+    public void setBoard(Board board) {
+        this.board = board;
+    }
+
+    public Character getHero() {
+        return hero;
+    }
+
+    public void setHero(Character hero) {
+        this.hero = hero;
+    }
+
+    public int getPlayerCase() {
+        return playerCase;
+    }
+
+    public void setPlayerCase(int playerCase) {
+        this.playerCase = playerCase;
+    }
 }

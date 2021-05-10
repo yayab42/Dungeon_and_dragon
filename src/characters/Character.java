@@ -1,25 +1,29 @@
 package characters;
 
 public abstract class Character {
-    String name;
-    int health;
-    int strength;
-    String image;
+    private String name;
+    private int health;
+    private int strength;
+    private String image;
 
 
     private int playerCase;
 
     public Character() {
+        this.playerCase = 1;
+        this.name = "";
+        this.health = 0;
+        this.strength = 0;
+        this.image = "";
     }
 
     public Character(String name) {
+        this();
         this.name = name;
-        this.playerCase = 1;
     }
 
     public Character(String name, int health, int strength, String image) {
-        this.playerCase = 1;
-        this.name = name;
+        this(name);
         this.health = health;
         this.strength = strength;
         this.image = image;

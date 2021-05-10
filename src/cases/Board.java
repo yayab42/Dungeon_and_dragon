@@ -5,9 +5,8 @@ import enemies.Dragon;
 import enemies.Enemy;
 import enemies.Gobelin;
 import enemies.Sorcier;
-
 import java.util.ArrayList;
-import java.util.List;
+
 
 public class Board {
     ArrayList<Case> liste = new ArrayList<Case>();
