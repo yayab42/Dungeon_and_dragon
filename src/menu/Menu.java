@@ -1,14 +1,17 @@
 package menu;
 import game.Game;
 import characters.Character;
-import characters.Magicien;
-import characters.Warrior;
+import javafx.scene.effect.Reflection;
+import org.reflections.Reflections;
 
-import java.lang.reflect.Field;
 import java.util.Scanner;
+import java.lang.reflect.*;
+import java.util.Set;
+
 
 //Menu
 public class Menu {
+
 
     private Scanner scanner;
 
@@ -48,7 +51,10 @@ public class Menu {
         System.out.println("Vous avez saisi : " + userName);
 
         //selection de la classe
-        System.out.println("Selectionnez votre classe : Warrior ou Magicien");
+        Reflections reflections = new Reflections("characters");
+        Set<Class<? extends Character>> classes = reflections.getSubTypesOf(Character.class);
+
+        System.out.println("Selectionnez votre classe : Warrior ou Magicien" + classes);
         //Scanner userChar = new Scanner(System.in);
         String userChoice = this.scanner.nextLine();
 
