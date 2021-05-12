@@ -1,4 +1,5 @@
 package menu;
+
 import game.Game;
 import characters.Character;
 import javafx.scene.effect.Reflection;
@@ -17,10 +18,9 @@ import java.util.Set;
 public class Menu {
 
 
-
     private Scanner scanner;
 
-    public Menu(){
+    public Menu() {
         this.scanner = new Scanner(System.in);
     }
 
@@ -29,6 +29,7 @@ public class Menu {
 
     /**
      * Fonction pour modifier le nom du héro
+     *
      * @param hero
      */
     public void modify(Character hero) {
@@ -58,6 +59,7 @@ public class Menu {
 
     /**
      * Fonction pour initialiser le personnage du joueur
+     *
      * @return
      */
     public Character init() {
@@ -74,14 +76,11 @@ public class Menu {
         Reflections reflections = new Reflections("characters");
         Set<Class<? extends Character>> classes = reflections.getSubTypesOf(Character.class);
 
-        System.out.println("Selectionnez votre classe : Warrior ou Magicien" + classes);
+        System.out.println("Selectionnez votre classe : " + classes);
         //Scanner userChar = new Scanner(System.in);
         String userChoice = this.scanner.nextLine();
 
         //vérification des choix utilisateur
-        /**
-         * vérification des choix utilisateur
-         */
         try {
             Class<?> currentHero = Class.forName("characters." + userChoice);
             Character hero = (Character) currentHero.newInstance();
@@ -96,10 +95,14 @@ public class Menu {
             System.out.println("vos points de vies : " + hero.getHealth());
             System.out.println("Vos points de force : " + hero.getStrength());
             return hero;
-        } catch( Exception e ) {
+
+        } catch (NoClassDefFoundError e) {
+            init();
+
+        } catch (Exception e) {
             System.out.println("Cette classe n'existe pas !");
             //Quitte le programme si rien n'est fait
-                init();
+            init();
 
         }
 
@@ -154,6 +157,7 @@ public class Menu {
 
     /**
      * On vérifie si le joueur est prêt
+     *
      * @param hero
      */
     public void ready(Character hero) {
@@ -165,7 +169,7 @@ public class Menu {
 
         } else if (playerReady.equals("non")) {
             System.out.println("Êtes vous sûr ? oui/non");
-           // Scanner sure = new Scanner(System.in);
+            // Scanner sure = new Scanner(System.in);
             String playerSure = this.scanner.nextLine();
             if (playerSure.equals("oui")) {
                 java.lang.System.exit(0);

@@ -2,6 +2,7 @@ package game;
 import cases.Board;
 import cases.Case;
 import characters.Character;
+import characters.Warrior;
 import exceptions.PersonnageHorsPlateauException;
 import utils.Utils;
 
@@ -20,29 +21,40 @@ public class Game {
     private int playerCase;
     public Game(){
 
-       this.scanner = new Scanner(System.in);
+      this(new Warrior());
     }
     //Lancement du jeu
 
 
     public Game(Character hero){
-        this();
-        this.hero = hero;
-        this.board = new Board();
-        this.playerCase = 1;
+        this(new Board(), hero, 1);
+
     }
 
     public Game(Board board, Character hero, int playerCase){
-        this();
+        this.scanner = new Scanner(System.in);
         this.board = board;
         this.hero = hero;
         this.playerCase = playerCase;
     }
+
+    /**
+     * Fonction permettant de savoir si le jeu est en cours
+     * @return
+     */
+    public boolean gameInProgress(){
+        return  (hero.getPlayerCase() < board.getLength() && hero.getHealth()>0);
+
+    }
+
+    /**
+     * Fonction de déroulement du jeu
+     */
     public void play() {
 
         System.out.println(hero.getName());
         Collections.shuffle(board.getList(), new Random());
-        while (hero.getPlayerCase() < board.getLength() && hero.getHealth()>0) {
+        while (gameInProgress()) {
             System.out.println("Tapez !roll pour lancer le dé");
             //Scanner rollDice = new Scanner(System.in);
             String roll = this.scanner.nextLine();

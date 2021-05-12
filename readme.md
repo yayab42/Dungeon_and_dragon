@@ -51,4 +51,4 @@
         this.<ability> = new <ability_type>();
     }
 
-
+<img src="UntitledDiagram.png">

@@ -11,8 +11,21 @@ public class EnemyCase extends Case {
     /**
      *Action de la case ennemie
      */
-    Enemy enemy;
-    @Override
+    private Enemy enemy;
+
+
+    public EnemyCase() {
+
+    }
+
+    public EnemyCase(Enemy enemy) {
+        this.enemy = enemy;
+    }
+
+    /**
+     * Fonction qui permet de lancer un combat à l'initiative du joueur et qui propos eune fuite si le ocmbat dure plus de deux tours d'attaque.
+     * @param hero
+     */
     public void deploy(Character hero) {
         boolean fuite = false;
         System.out.println("Vous entrez dans une pièce dans laquelle se trouve un enemie, c'est un " + enemy.getName() + "!!");
@@ -44,11 +57,5 @@ public class EnemyCase extends Case {
         }
     }
 
-    public EnemyCase() {
 
-    }
-
-    public EnemyCase(Enemy enemy) {
-        this.enemy = enemy;
-    }
 }

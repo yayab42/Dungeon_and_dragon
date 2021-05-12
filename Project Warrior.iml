@@ -10,16 +10,19 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../reflections-0.9.10.jar!/" />
+          <root url="jar://$MODULE_DIR$/../javassist-3.12.1.GA.jar!/" />
         </CLASSES>
         <JAVADOC />
-        <SOURCES />
+        <SOURCES>
+          <root url="file://$MODULE_DIR$/../reflections-0.9.12/src/main/java" />
+          <root url="file://$MODULE_DIR$/../reflections-0.9.12/src/test/java" />
+        </SOURCES>
       </library>
     </orderEntry>
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../javassist-3.12.1.GA.jar!/" />
+          <root url="jar://$MODULE_DIR$/../reflections-0.9.12.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
