@@ -10,7 +10,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../reflections-0.9.12.jar!/" />
+          <root url="jar://$MODULE_DIR$/../reflections-0.9.10.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
@@ -19,7 +19,7 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/../javassist.jar!/" />
+          <root url="jar://$MODULE_DIR$/../javassist-3.12.1.GA.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />

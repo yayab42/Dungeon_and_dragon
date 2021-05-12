@@ -1,10 +1,14 @@
 package characters;
 
+
 import characters.abilities.Weapon;
 import utils.Utils;
 
-//Warriors
+/**
+ *Classe qui représente un guerrier
+ */
 public class Warrior extends Character {
+
 
     public Warrior() {
 

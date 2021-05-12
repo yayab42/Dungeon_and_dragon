@@ -9,7 +9,11 @@ import java.util.Collections;
 import java.util.Random;
 import java.util.Scanner;
 
+/**
+ *Objet  : Game responsable du déroulé du jeu
+ */
 public class Game {
+
     private Scanner scanner;
     private Board board;
     private Character hero;

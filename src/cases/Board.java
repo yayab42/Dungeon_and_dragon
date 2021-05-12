@@ -7,8 +7,13 @@ import enemies.Gobelin;
 import enemies.Sorcier;
 import java.util.ArrayList;
 
-
+/**
+ * On initialise 64 cases contenant chacune un des objets
+ */
 public class Board {
+    /**
+     *
+     */
     ArrayList<Case> liste = new ArrayList<Case>();
     Enemy Dragon = new Dragon();
     Enemy gobelin = new Gobelin();
@@ -19,6 +24,7 @@ public class Board {
     Weapon mace = new Mace();
     Potion potion = new Potion_Standard();
     Potion grandePotion = new Grande_potion();
+
 
     public Board(){
         liste.add(new EmptyCase());

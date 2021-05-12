@@ -1,6 +1,11 @@
 package characters;
 
+/**
+ *Classe parente des personnages jouable
+ */
 public abstract class Character {
+
+
     private String name;
     private int health;
     private int strength;

@@ -10,7 +10,12 @@ import java.util.Set;
 
 
 //Menu
+
+/**
+ * Menu
+ */
 public class Menu {
+
 
 
     private Scanner scanner;
@@ -20,9 +25,16 @@ public class Menu {
     }
 
 
+//Fonction pour modifier le nom du héro
 
-
+    /**
+     * Fonction pour modifier le nom du héro
+     * @param hero
+     */
     public void modify(Character hero) {
+        /**
+         *
+         */
         System.out.println("Il est encore temps de modifier ton nom : veux tu le modifier ? oui/non");
         //Scanner modify = new Scanner(System.in);
         String nameModify = this.scanner.nextLine();
@@ -42,8 +54,16 @@ public class Menu {
         }
 
     }
+//Fonction pour initialiser le personnage du joueur
 
+    /**
+     * Fonction pour initialiser le personnage du joueur
+     * @return
+     */
     public Character init() {
+        /**
+         *
+         */
         //selection du nom
         System.out.println("Entrez votre Nom");
         //Scanner sc = new Scanner(System.in);
@@ -59,6 +79,9 @@ public class Menu {
         String userChoice = this.scanner.nextLine();
 
         //vérification des choix utilisateur
+        /**
+         * vérification des choix utilisateur
+         */
         try {
             Class<?> currentHero = Class.forName("characters." + userChoice);
             Character hero = (Character) currentHero.newInstance();
@@ -105,7 +128,14 @@ public class Menu {
     }
 
     //On propose de lancer le jeu
+
+    /**
+     * On propose de lancer le jeu
+     */
     public void start() {
+        /**
+         *
+         */
         System.out.println("Tapez 'start' pour jouer ou 'exit' pour quitter");
         //Scanner start = new Scanner(System.in);
         String gameStart = this.scanner.nextLine();
@@ -121,6 +151,11 @@ public class Menu {
     }
 
     //On vérifie si le joueur est prêt
+
+    /**
+     * On vérifie si le joueur est prêt
+     * @param hero
+     */
     public void ready(Character hero) {
         System.out.println("la partie va commencer êtes vous prêt ? oui/non");
         //Scanner ready = new Scanner(System.in);

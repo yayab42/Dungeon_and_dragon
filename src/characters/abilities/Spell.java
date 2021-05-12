@@ -1,6 +1,13 @@
 package characters.abilities;
 
+/**
+ *Classe parente des sorts
+ */
 public class Spell {
+
+    /**
+     *Classe parente des sorts
+     */
    private String name;
    private int level;
 

@@ -1,6 +1,13 @@
 package characters.abilities;
 
+/**
+ *Classe parente : weapon
+ */
 public abstract class Weapon {
+
+    /**
+     *Classe parente : weapon
+     */
     private String name;
     private int level;
 

@@ -1,11 +1,16 @@
 package cases;
-
 import characters.Character;
 import characters.Magicien;
 import characters.abilities.Spell;
-public class SpellCase extends Case{
-    private Spell spell;
 
+/**
+ * Case sort
+ */
+public class SpellCase extends Case{
+    /**
+     *Action de la case sort
+     */
+    private Spell spell;
     @Override
     public void deploy(Character hero) {
 

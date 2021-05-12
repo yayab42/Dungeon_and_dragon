@@ -1,6 +1,13 @@
 package characters.abilities;
 
+/**
+ *Classe parente des potions
+ */
 public abstract class Potion {
+
+    /**
+     *Classe parente des potions
+     */
     private int hp;
     private String name;
 

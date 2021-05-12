@@ -1,5 +1,7 @@
 package enemies;
-
+/**
+ * Classe qui représente un ennemi de type gobelin
+ */
 public class Gobelin extends Enemy{
 
     public Gobelin(){

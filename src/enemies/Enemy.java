@@ -1,6 +1,10 @@
 package enemies;
 
+/**
+ *Classe parente des ennemis
+ */
 public abstract class Enemy {
+
     private String name;
     private int health;
     private int strength;

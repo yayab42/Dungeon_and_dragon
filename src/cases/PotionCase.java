@@ -1,9 +1,15 @@
 package cases;
 import characters.Character;
 import characters.abilities.Potion;
-public class PotionCase extends Case{
-    Potion potion;
 
+/**
+ * Case potion
+ */
+public class PotionCase extends Case{
+    /**
+     *Action de la case potion
+     */
+    Potion potion;
     @Override
     public void deploy(Character hero) {
         System.out.println("Vous avancez dans une pièce dans laquelle une potion se trouve, vous la buvez et récupérez " + potion.getHp() + "HP !");

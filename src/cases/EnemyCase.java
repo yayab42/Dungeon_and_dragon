@@ -1,14 +1,17 @@
 package cases;
-
 import characters.Character;
 import enemies.Enemy;
 import utils.Utils;
 import java.util.Scanner;
 
-
+/**
+ * Case ennemie
+ */
 public class EnemyCase extends Case {
+    /**
+     *Action de la case ennemie
+     */
     Enemy enemy;
-
     @Override
     public void deploy(Character hero) {
         boolean fuite = false;

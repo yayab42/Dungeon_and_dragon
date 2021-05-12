@@ -1,12 +1,16 @@
 package cases;
-
 import characters.Character;
 import characters.Warrior;
 import characters.abilities.Weapon;
 
+/**
+ * Case Weapon
+ */
 public class WeaponCase extends Case {
+    /**
+     *Action de la case Arme
+     */
     private Weapon weapon;
-
     @Override
     public void deploy(Character hero) {
         if (hero instanceof Warrior) {

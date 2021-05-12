@@ -1,12 +1,16 @@
 package characters;
 
+
 import characters.abilities.Spell;
 import utils.Utils;
 
-//Casters
+/**
+ *Classe qui représente un magicien
+ */
 public class Magicien extends Character {
 
-   private Spell spell;
+
+    private Spell spell;
 
     public Magicien() {
         super("",Utils.randInt(3, 6), Utils.randInt(8, 15),"img" );
