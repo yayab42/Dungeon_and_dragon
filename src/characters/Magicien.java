@@ -5,10 +5,9 @@ import characters.abilities.Spell;
 import utils.Utils;
 
 /**
- *Classe qui représente un magicien
+ *Classe qui représente un magicien et utilisation des constructeurs de la classe parente afin de donner des valeurs de vie et de force propres au magicien
  */
 public class Magicien extends Character {
-
 
     private Spell spell;
 

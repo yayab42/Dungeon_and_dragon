@@ -5,9 +5,10 @@ import characters.abilities.Weapon;
 import utils.Utils;
 
 /**
- *Classe qui représente un guerrier
+ *Classe qui représente un Guerrier et utilisation des constructeurs de la classe parente afin de donner des valeurs de vie et de force propres au guerrier
  */
 public class Warrior extends Character {
+
 
 
     public Warrior() {

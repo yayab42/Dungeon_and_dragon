@@ -12,7 +12,7 @@ import java.util.ArrayList;
  */
 public class Board {
     /**
-     *
+     * On set les attributs du tableau de jeu
      */
     ArrayList<Case> liste = new ArrayList<Case>();
     Enemy Dragon = new Dragon();
@@ -25,7 +25,9 @@ public class Board {
     Potion potion = new Potion_Standard();
     Potion grandePotion = new Grande_potion();
 
-
+    /**
+     * Mise en place de chaque case indépendamment
+     */
     public Board(){
         liste.add(new EmptyCase());
         liste.add(new EmptyCase());
