@@ -12,18 +12,18 @@ public class Magicien extends Character {
     private Spell spell;
 
     public Magicien() {
-        super("",Utils.randInt(3, 6), Utils.randInt(8, 15),"img" );
+        super("",Utils.randInt(3, 6), Utils.randInt(8, 15),"img", "Magicien" );
         this.spell = new Spell();
     }
 
     public Magicien(String name) {
-       super(name,Utils.randInt(3, 6), Utils.randInt(8, 15),"img" );
+       super(name,Utils.randInt(3, 6), Utils.randInt(8, 15),"img", "Magicien" );
         this.spell = new Spell();
 
     }
 
-    public Magicien(String magicienName, String magicienImg, int magicienHealth, int magicienStrength) {
-        super(magicienName, magicienHealth, magicienStrength, magicienImg);
+    public Magicien(String magicienName, String magicienImg, int magicienHealth, int magicienStrength, String magicienType) {
+        super(magicienName, magicienHealth, magicienStrength, magicienImg, magicienType);
         this.spell = new Spell();
     }
 

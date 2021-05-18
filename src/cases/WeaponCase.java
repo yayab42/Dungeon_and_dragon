@@ -6,7 +6,7 @@ import characters.abilities.Weapon;
 /**
  * Case Weapon
  */
-public class WeaponCase extends Case {
+public class WeaponCase implements Case {
     /**
      *Action de la case Arme
      */

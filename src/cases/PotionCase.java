@@ -5,7 +5,7 @@ import characters.abilities.Potion;
 /**
  * Case potion
  */
-public class PotionCase extends Case{
+public class PotionCase implements Case {
     /**
      *Action de la case potion
      */

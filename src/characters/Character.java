@@ -10,6 +10,7 @@ public abstract class Character {
     private int health;
     private int strength;
     private String image;
+    private String type;
 
 
     private int playerCase;
@@ -20,6 +21,7 @@ public abstract class Character {
         this.health = 0;
         this.strength = 0;
         this.image = "";
+        this.type="";
     }
 
     public Character(String name) {
@@ -27,11 +29,12 @@ public abstract class Character {
         this.name = name;
     }
 
-    public Character(String name, int health, int strength, String image) {
+    public Character(String name, int health, int strength, String image, String type) {
         this(name);
         this.health = health;
         this.strength = strength;
         this.image = image;
+        this.type = type;
 
     }
     public int getHealth(){
@@ -64,5 +67,13 @@ public abstract class Character {
 
     public void setPlayerCase(int playerCase) {
         this.playerCase = playerCase;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 }

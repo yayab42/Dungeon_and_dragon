@@ -1,5 +1,7 @@
 package app;
+import characters.Character;
 import menu.Menu;
+import connexion.DB;
 
 /**
  * App

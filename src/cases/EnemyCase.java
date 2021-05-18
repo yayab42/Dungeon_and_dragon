@@ -7,7 +7,7 @@ import java.util.Scanner;
 /**
  * Case ennemie
  */
-public class EnemyCase extends Case {
+public class EnemyCase implements Case {
     /**
      *Action de la case ennemie
      */

@@ -4,7 +4,7 @@ import characters.Character;
 /**
  * Case vide
  */
-public class EmptyCase extends Case{
+public class EmptyCase implements Case {
     /**
      *
      * @param hero Action de la case video

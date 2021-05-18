@@ -3,6 +3,7 @@ import cases.Board;
 import cases.Case;
 import characters.Character;
 import characters.Warrior;
+import connexion.DB;
 import exceptions.PersonnageHorsPlateauException;
 import utils.Utils;
 
@@ -31,6 +32,12 @@ public class Game {
 
     }
 
+    /**
+     *
+     * @param board
+     * @param hero
+     * @param playerCase
+     */
     public Game(Board board, Character hero, int playerCase){
         this.scanner = new Scanner(System.in);
         this.board = board;
@@ -80,18 +87,24 @@ public class Game {
 
         }
         System.out.println("Partie terminée !");
-        System.out.println("Voulez vous recommencer ? oui/non");
-        //Scanner retry = new Scanner(System.in);
-        String playerRetry = this.scanner.nextLine();
-        if (playerRetry.equals("oui")) {
-            hero.setPlayerCase(1);
-            play();
-        } else if (playerRetry.equals("non")) {
-            System.out.println("@+ gros");
-            System.exit(0);
+        DB db = new DB();
+        System.out.println("Voulez vous sauvegarder votre personnage  ? oui/non");
+        String save = this.scanner.nextLine();
+        if (save.equals("oui")){
+        db.dbSaveGame(hero);}
+        else {
+            System.out.println("Voulez vous recommencer ? oui/non");
+            //Scanner retry = new Scanner(System.in);
+            String playerRetry = this.scanner.nextLine();
+            if (playerRetry.equals("oui")) {
+                hero.setPlayerCase(1);
+                play();
+            } else if (playerRetry.equals("non")) {
+                System.out.println("@+ gros");
+                System.exit(0);
+            }
+
         }
-
-
     }
 
     public Board getBoard() {

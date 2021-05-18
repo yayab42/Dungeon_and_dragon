@@ -13,21 +13,21 @@ public class Warrior extends Character {
 
     public Warrior() {
 
-        super("" ,5, Utils.randInt(5, 10), "img");
+        super("" ,5, Utils.randInt(5, 10), "img", "Guerrier");
     }
 
 
     public Warrior(String name) {
 
-        super(name ,5, Utils.randInt(5, 10), "img");
+        super(name ,5, Utils.randInt(5, 10), "img", "Guerrier");
     }
 
-    public Warrior(String warriorName, int warriorHealth, int warriorStrength, String warriorImg) {
-        super(warriorName, warriorHealth, warriorStrength, warriorImg);
+    public Warrior(String warriorName, int warriorHealth, int warriorStrength, String warriorImg, String warriorType) {
+        super(warriorName, warriorHealth, warriorStrength, warriorImg, warriorType);
     }
 
-    public Warrior(String warriorName, int warriorHealth, int warriorStrength, String warriorImg, Weapon weapon) {
-        super(warriorName, warriorHealth, warriorStrength, warriorImg);
+    public Warrior(String warriorName, int warriorHealth, int warriorStrength, String warriorImg, Weapon weapon, String warriorType) {
+        super(warriorName, warriorHealth, warriorStrength, warriorImg, warriorType);
     }
 
 

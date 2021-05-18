@@ -6,7 +6,7 @@ import characters.abilities.Spell;
 /**
  * Case sort
  */
-public class SpellCase extends Case{
+public class SpellCase implements Case {
     /**
      *Action de la case sort
      */
